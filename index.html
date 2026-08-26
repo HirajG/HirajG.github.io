@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Hiraj Gajera · Software Engineer & AI Evaluation</title>
+<meta name="description" content="Hiraj Gajera builds production web and mobile apps, real-time systems, and reinforcement-learning environments for AI agents." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=JetBrains+Mono:wght@400;500&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#F5F2EB; --card:#FBFAF6; --ink:#1A1815; --muted:#6B655C; --faint:#A8A196;
+    --accent:#B4432B; --line:#E4DFD4; --live:#3F8F5B;
+    --serif:"Newsreader",Georgia,"Times New Roman",serif;
+    --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+    --sans:"Public Sans",ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:var(--sans); font-size:17px; line-height:1.65;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  }
+  .wrap{max-width:760px; margin:0 auto; padding:0 28px}
+  a{color:inherit}
+
+  /* ---- top bar ---- */
+  .topbar{display:flex; justify-content:space-between; align-items:center;
+    padding:26px 0 0; font-family:var(--mono); font-size:12.5px; letter-spacing:.02em}
+  .topbar .brand{color:var(--muted)}
+  .topbar nav a{color:var(--muted); text-decoration:none; margin-left:20px}
+  .topbar nav a:hover{color:var(--accent)}
+
+  /* ---- eyebrow label ---- */
+  .eyebrow{font-family:var(--mono); font-size:11.5px; font-weight:500;
+    letter-spacing:.16em; text-transform:uppercase; color:var(--accent)}
+
+  /* ---- hero ---- */
+  header.hero{padding:78px 0 20px}
+  header.hero .eyebrow{margin-bottom:20px}
+  h1{font-family:var(--serif); font-weight:500; font-size:clamp(46px,9vw,78px);
+    line-height:1.02; letter-spacing:-.015em; margin:0 0 26px}
+  .lede{font-size:19px; color:#39332c; max-width:60ch}
+  .lede + .lede{margin-top:16px}
+  .lede a{color:var(--ink); text-decoration:underline; text-decoration-color:var(--faint);
+    text-underline-offset:3px}
+  .lede a:hover{text-decoration-color:var(--accent)}
+  .links{margin-top:30px; font-family:var(--mono); font-size:14px}
+  .links a{color:var(--ink); text-decoration:none; margin-right:22px; border-bottom:1px solid var(--line); padding-bottom:2px}
+  .links a:hover{border-color:var(--accent); color:var(--accent)}
+  .links a .arr{color:var(--faint)}
+
+  /* ---- section header ---- */
+  section{padding:56px 0 0}
+  .sec-head{display:flex; align-items:center; gap:18px; margin-bottom:34px}
+  .sec-head .rule{flex:1; height:1px; background:var(--line)}
+
+  /* ---- project cards ---- */
+  .card{background:var(--card); border:1px solid var(--line); border-radius:14px;
+    padding:30px 30px 26px; margin-bottom:20px}
+  .card .kicker{font-family:var(--mono); font-size:11px; letter-spacing:.13em;
+    text-transform:uppercase; color:var(--faint); margin-bottom:14px}
+  .card h3{font-family:var(--serif); font-weight:500; font-size:30px; letter-spacing:-.01em; margin:0 0 6px}
+  .card .tagline{font-family:var(--serif); font-style:italic; font-size:19px; color:var(--muted); margin:0 0 14px}
+  .card p{margin:0 0 18px; color:#39332c; font-size:16px; line-height:1.6}
+  .card .foot{display:flex; flex-wrap:wrap; align-items:center; gap:20px}
+  .card .foot a{font-family:var(--mono); font-size:13px; color:var(--ink);
+    text-decoration:none; border-bottom:1px solid var(--line); padding-bottom:2px}
+  .card .foot a:hover{border-color:var(--accent); color:var(--accent)}
+  .card .foot a .arr{color:var(--faint)}
+  /* signature: live metric on the real-time project */
+  .metric{display:inline-flex; align-items:center; gap:9px; font-family:var(--mono);
+    font-size:13px; color:var(--muted); margin-left:auto}
+  .metric b{color:var(--ink); font-weight:500}
+  .dot{width:8px; height:8px; border-radius:50%; background:var(--live);
+    box-shadow:0 0 0 0 rgba(63,143,91,.5); animation:pulse 2.4s ease-out infinite}
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(63,143,91,.45)}
+    70%{box-shadow:0 0 0 7px rgba(63,143,91,0)}
+    100%{box-shadow:0 0 0 0 rgba(63,143,91,0)}
+  }
+
+  /* ---- two-column: focus + stack ---- */
+  .cols{display:grid; grid-template-columns:1fr 1fr; gap:44px}
+  .col h4{font-family:var(--mono); font-size:11px; letter-spacing:.13em; text-transform:uppercase;
+    color:var(--faint); font-weight:500; margin:0 0 16px}
+  .focus li{list-style:none; padding-left:20px; position:relative; margin-bottom:14px; color:#39332c; font-size:15.5px}
+  .focus li::before{content:"›"; position:absolute; left:2px; color:var(--accent); font-weight:600}
+  .focus ul{margin:0; padding:0}
+  .stack-group{margin-bottom:16px}
+  .stack-group .lbl{font-size:13.5px; color:var(--muted); margin-bottom:5px}
+  .stack-group .items{font-size:15px}
+
+  /* ---- more projects grid ---- */
+  .more{display:grid; grid-template-columns:1fr 1fr; gap:24px 40px}
+  .mp .mp-name{font-weight:600; font-size:15.5px}
+  .mp p{margin:3px 0 0; color:var(--muted); font-size:14px; line-height:1.45; max-width:44ch}
+
+  /* ---- experience timeline ---- */
+  .xp{padding:22px 0; border-top:1px solid var(--line)}
+  .xp:first-of-type{border-top:none; padding-top:0}
+  .xp-head{display:flex; justify-content:space-between; align-items:baseline; gap:16px}
+  .xp-role{font-size:17px; font-weight:600}
+  .xp-role .co{color:var(--muted); font-weight:400}
+  .xp-date{font-family:var(--mono); font-size:12px; color:var(--faint); white-space:nowrap}
+  .xp p{margin:7px 0 0; color:#39332c; font-size:15px; line-height:1.55; max-width:64ch}
+  .edu{margin-top:26px; padding-top:22px; border-top:1px solid var(--line)}
+  .edu .lbl{font-family:var(--mono); font-size:11px; letter-spacing:.13em; text-transform:uppercase; color:var(--faint); margin-bottom:10px}
+  .edu .deg{font-size:16px; font-weight:600}
+  .edu .meta{color:var(--muted); font-size:14.5px; margin-top:2px}
+
+  /* ---- contact ---- */
+  .contact p{font-size:18px; color:#39332c; max-width:52ch}
+  .contact .big{font-family:var(--serif); font-size:24px; margin-top:8px}
+  .contact .big a{text-decoration:none; border-bottom:1px solid var(--faint); padding-bottom:2px}
+  .contact .big a:hover{border-color:var(--accent); color:var(--accent)}
+
+  /* ---- footer ---- */
+  footer{margin-top:70px; padding:26px 0 44px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; align-items:center;
+    font-family:var(--mono); font-size:12.5px; color:var(--faint)}
+  footer nav a{color:var(--muted); text-decoration:none; margin-left:18px}
+  footer nav a:hover{color:var(--accent)}
+
+  @media (max-width:620px){
+    body{font-size:16px}
+    .cols{grid-template-columns:1fr; gap:36px}
+    .more{grid-template-columns:1fr; gap:20px}
+    .card{padding:24px 22px}
+    .metric{margin-left:0; margin-top:12px; width:100%}
+    .topbar nav a{margin-left:14px}
+  }
+  @media (prefers-reduced-motion:reduce){ .dot{animation:none} }
+  a:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:2px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <span class="brand">hiraj gajera</span>
+    <nav>
+      <a href="#work">work</a>
+      <a href="#experience">experience</a>
+      <a href="#focus">focus</a>
+      <a href="#contact">contact</a>
+    </nav>
+  </div>
+
+  <header class="hero">
+    <div class="eyebrow">Software Engineer &amp; AI Evaluation · India</div>
+    <h1>Hiraj Gajera</h1>
+    <p class="lede">I've spent 4+ years building production web and mobile apps, along with the real-time systems
+      that run behind them. A few of them have grown to tens of thousands of daily users.</p>
+    <p class="lede">Recently I've been building <a href="#work">reinforcement-learning environments</a>:
+      gradable coding tasks that test how well an AI agent can handle real engineering work.</p>
+    <div class="links">
+      <a href="https://github.com/HirajG">github <span class="arr">↗</span></a>
+      <a href="https://linkedin.com/in/hiraj-gajera-17483a118">linkedin <span class="arr">↗</span></a>
+      <a href="mailto:developer.hiraj@gmail.com">email</a>
+    </div>
+  </header>
+
+  <section id="work">
+    <div class="sec-head"><span class="eyebrow">Selected work</span><span class="rule"></span></div>
+
+    <article class="card">
+      <div class="kicker">ML + RL · Python</div>
+      <h3>finlabel</h3>
+      <p class="tagline">A classifier you can grade an agent on.</p>
+      <p>A consumer-finance document classifier built with TF-IDF, LightGBM, and FastAPI. I wrapped it as a
+        reinforcement-learning environment that scores an agent on macro-F1 over a hidden test set, and added
+        a Claude-powered review layer for the low-confidence cases.</p>
+      <div class="foot">
+        <a href="https://github.com/HirajG/finlabel">github.com/HirajG/finlabel <span class="arr">↗</span></a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="kicker">Real-time · Maps</div>
+      <h3>Tracknerd</h3>
+      <p class="tagline">Live tracking for fleets and school buses.</p>
+      <p>I led the front-end across Tracknerd's three products: Lokkate, a fleet-tracking web and mobile
+        app for commercial clients; Skool, a school-bus tracking app; and a CRM that ties them together.
+        All of it runs on real-time animated tracking across Google, MapMyIndia, and MapBox.</p>
+      <div class="foot">
+        <a href="https://tracknerd.io">tracknerd.io <span class="arr">↗</span></a>
+        <span class="metric"><span class="dot" aria-hidden="true"></span><b>28,000+</b>&nbsp;daily users</span>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="kicker">Marketplace · Web + Mobile</div>
+      <h3>ReMat</h3>
+      <p class="tagline">Buy and sell surplus construction materials.</p>
+      <p>A full-stack marketplace across web and mobile that connects buyers with suppliers of leftover
+        and surplus construction materials, so unused stock finds a second home instead of going to landfill.</p>
+      <div class="foot">
+        <a href="https://remat.com">remat.com <span class="arr">↗</span></a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="kicker">AI product · React Native + Express</div>
+      <h3>Roomify AI</h3>
+      <p class="tagline">Redesign any room from a single photo.</p>
+      <p>A mobile app that takes a photo of a room, applies a chosen style through an AI image pipeline,
+        and returns a redesign with shoppable furniture links. I built the React Native app, the Express
+        backend, and the image pipeline end to end.</p>
+      <div class="foot">
+        <a href="https://roomify.live">roomify.live <span class="arr">↗</span></a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="kicker">IoT · Data viz</div>
+      <h3>IoT Sensor Data Visualization</h3>
+      <p class="tagline">Live sensor streams, turned into dashboards.</p>
+      <p>A web app that ingests data from IoT devices and renders it as real-time charts and dashboards,
+        backed by AWS. I also built the companion navigation mobile app.</p>
+      <div class="foot">
+        <span style="font-family:var(--mono);font-size:13px;color:var(--muted)">React · Chart.js · AWS (IoT Core, Lambda, DynamoDB)</span>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="kicker">EdTech · React + Node</div>
+      <h3>LearnIt</h3>
+      <p class="tagline">An education platform with animated lessons.</p>
+      <p>An EdTech platform with a web app, backend, and CRM, plus eduanim-js: an animation library I
+        wrote that renders lessons with real-time physics.</p>
+    </article>
+
+    <article class="card">
+      <div class="kicker">Marketplace · Node + React</div>
+      <h3>Unisova</h3>
+      <p class="tagline">A marketplace for student housing.</p>
+      <p>A student-housing marketplace I built on Node.js, Express, and React, covering listings, search,
+        and the booking flow that connects students to places to live.</p>
+      <div class="foot">
+        <a href="https://unisova.com">unisova.com <span class="arr">↗</span></a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="kicker">E-commerce · Next.js + Node</div>
+      <h3>Cansily</h3>
+      <p class="tagline">Fresh organic produce, delivered.</p>
+      <p>An online store for fresh organic fruits and vegetables, with product browsing, a cart, and a
+        checkout flow for home delivery. I built the Next.js storefront and the Node backend behind it.</p>
+      <div class="foot">
+        <a href="https://cansily.com">cansily.com <span class="arr">↗</span></a>
+      </div>
+    </article>
+  </section>
+
+  <section id="more">
+    <div class="sec-head"><span class="eyebrow">More projects</span><span class="rule"></span></div>
+    <div class="more">
+      <div class="mp"><div class="mp-name">TaxLync</div><p>Tax-filing web and mobile app for a US client.</p></div>
+      <div class="mp"><div class="mp-name">Feedr</div><p>Health-focused meal discovery and ordering app for people with dietary needs.</p></div>
+      <div class="mp"><div class="mp-name">HelperFox</div><p>React Native app connecting people to local helpers and services.</p></div>
+      <div class="mp"><div class="mp-name">Farma</div><p>Farmer social-commerce marketplace on React Native and Firebase.</p></div>
+      <div class="mp"><div class="mp-name">Roast</div><p>Ordering app for a coffee roaster, with Stripe payments.</p></div>
+      <div class="mp"><div class="mp-name">Jerusalem Gates</div><p>E-commerce platform for a fine-jewelry brand.</p></div>
+      <div class="mp"><div class="mp-name">Blue Ocean Laundry</div><p>On-demand laundry service app.</p></div>
+      <div class="mp"><div class="mp-name">Kodus</div><p>Interactive coding-education project.</p></div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="sec-head"><span class="eyebrow">Experience</span><span class="rule"></span></div>
+
+    <div class="xp">
+      <div class="xp-head">
+        <div class="xp-role">AI Software Engineer <span class="co">· Mercor / DataAnnotation</span></div>
+        <div class="xp-date">Jan 2026 – Present</div>
+      </div>
+      <p>I write and review full-stack coding tasks and reference solutions used to train and evaluate
+        large language models, building reproducible environments and grading agent output for correctness.</p>
+    </div>
+
+    <div class="xp">
+      <div class="xp-head">
+        <div class="xp-role">Full-Stack Developer <span class="co">· Upwork (Freelance)</span></div>
+        <div class="xp-date">May 2021 – Present</div>
+      </div>
+      <p>Freelance web and mobile work for clients, from Node.js and serverless (AWS Lambda, DynamoDB, Cognito)
+        backends to production React front-ends. Projects include Unisova, a tax-filing app, and a
+        data-visualization platform.</p>
+    </div>
+
+    <div class="xp">
+      <div class="xp-head">
+        <div class="xp-role">Front-End Engineer <span class="co">· Tracknerd</span></div>
+        <div class="xp-date">Jan 2023 – Feb 2024</div>
+      </div>
+      <p>Led the front-end across Tracknerd's three products: Lokkate (fleet tracking for commercial
+        clients), Skool (school-bus tracking, 28,000+ daily users), and a CRM. Built real-time animated
+        tracking across Google, MapMyIndia, and MapBox.</p>
+    </div>
+
+    <div class="xp">
+      <div class="xp-head">
+        <div class="xp-role">React Native Developer <span class="co">· Certum Ventures</span></div>
+        <div class="xp-date">Aug 2022 – Jan 2023</div>
+      </div>
+      <p>Built patient and doctor healthcare apps from scratch in a two-person team, covering video
+        consultations, appointments, prescriptions, and payments.</p>
+    </div>
+
+    <div class="xp">
+      <div class="xp-head">
+        <div class="xp-role">Full-Stack Intern <span class="co">· Data Prophets</span></div>
+        <div class="xp-date">Mar 2021 – May 2021</div>
+      </div>
+      <p>Built a single-page web app and REST APIs for a data-science project.</p>
+    </div>
+
+    <div class="edu">
+      <div class="lbl">Education</div>
+      <div class="deg">B.E. Computer Engineering, Marwadi University (GTU)</div>
+      <div class="meta">2018 – 2022 · CGPA 9.01/10</div>
+    </div>
+  </section>
+
+  <section id="focus">
+    <div class="sec-head"><span class="eyebrow">Focus &amp; stack</span><span class="rule"></span></div>
+    <div class="cols">
+      <div class="col focus">
+        <h4>What I'm working on</h4>
+        <ul>
+          <li>Reinforcement-learning environments, and the graders that keep them honest.</li>
+          <li>Real-time systems, from live tracking to maps and streaming data.</li>
+          <li>Shipping ML and LLM features into real, production apps.</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h4>Tech I work with</h4>
+        <div class="stack-group"><div class="lbl">Languages</div><div class="items">JavaScript · TypeScript · Python</div></div>
+        <div class="stack-group"><div class="lbl">Frontend &amp; mobile</div><div class="items">React · React Native</div></div>
+        <div class="stack-group"><div class="lbl">Backend</div><div class="items">Node.js · Express · FastAPI</div></div>
+        <div class="stack-group"><div class="lbl">Real-time &amp; maps</div><div class="items">WebSockets · Google Maps · MapMyIndia · MapBox</div></div>
+        <div class="stack-group"><div class="lbl">ML &amp; infra</div><div class="items">scikit-learn · LightGBM · Docker · GitHub Actions</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="sec-head"><span class="eyebrow">Contact</span><span class="rule"></span></div>
+    <p>I'm open to work on real-time systems, AI product engineering, and building RL environments.</p>
+    <p class="big">Reach me at <a href="mailto:developer.hiraj@gmail.com">developer.hiraj@gmail.com</a></p>
+  </section>
+
+  <footer>
+    <span>© 2026 Hiraj Gajera</span>
+    <nav>
+      <a href="https://github.com/HirajG">github</a>
+      <a href="https://linkedin.com/in/hiraj-gajera-17483a118">linkedin</a>
+      <a href="mailto:developer.hiraj@gmail.com">email</a>
+    </nav>
+  </footer>
+
+</div>
+</body>
+</html>
